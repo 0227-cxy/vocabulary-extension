@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>生词本 · 完整列表</title>
+    <link rel="stylesheet" href="../styles/shared.css" />
+    <link rel="stylesheet" href="vocab.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar card">
+        <h1>生词本</h1>
+        <p class="muted">导入导出、排序与随机复习</p>
+
+        <div class="stats-row" id="stats-row"></div>
+        <div class="theme-row" id="theme-row"></div>
+
+        <label class="field">
+          <span>搜索</span>
+          <input type="search" id="search" class="input" placeholder="单词或释义" />
+        </label>
+
+        <label class="field">
+          <span>排序</span>
+          <select id="sort" class="input">
+            <option value="time-desc">加入时间（新→旧）</option>
+            <option value="time-asc">加入时间（旧→新）</option>
+            <option value="alpha-asc">字母 A→Z</option>
+            <option value="alpha-desc">字母 Z→A</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>难度筛选</span>
+          <select id="diff-filter" class="input">
+            <option value="all">全部难度</option>
+            <option value="unfamiliar">生疏</option>
+            <option value="familiar">熟悉</option>
+            <option value="mastered">掌握</option>
+          </select>
+        </label>
+
+        <div class="side-actions">
+          <button type="button" id="btn-export" class="btn">导出 JSON</button>
+          <button type="button" id="btn-export-anki" class="btn">导出 Anki</button>
+          <button type="button" id="btn-export-csv" class="btn">导出 CSV</button>
+          <label class="btn import-label">
+            导入 JSON
+            <input type="file" id="import-file" accept="application/json,.json" hidden />
+          </label>
+          <button type="button" id="btn-review" class="btn btn-primary">随机复习</button>
+          <button type="button" id="btn-options" class="btn">翻译设置</button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="main-toolbar">
+          <span id="stats" class="muted">加载中…</span>
+          <button type="button" id="btn-clear" class="btn btn-danger">清空生词本</button>
+        </div>
+        <div id="table-wrap" class="card table-wrap"></div>
+      </main>
+    </div>
+
+    <dialog id="review-dialog" class="review-dialog card">
+      <div class="review-inner">
+        <p class="muted">随机复习 · 看英文想中文</p>
+        <div id="review-word" class="review-word"></div>
+        <div id="review-phonetic" class="review-phonetic muted"></div>
+        <button type="button" id="btn-show-answer" class="btn btn-primary">显示答案</button>
+        <div id="review-answer" class="review-answer hidden"></div>
+        <div class="review-actions">
+          <button type="button" id="btn-next" class="btn">下一词</button>
+          <button type="button" id="btn-close-review" class="btn">关闭</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="vocab.js"></script>
+  </body>
+</html>

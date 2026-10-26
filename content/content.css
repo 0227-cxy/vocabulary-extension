@@ -1,0 +1,353 @@
+#wst-root {
+  all: initial;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+#wst-panel {
+  --wstp: #4f46e5;
+  --wstp-soft: #eef2ff;
+  position: fixed;
+  z-index: 2147483646;
+  width: min(320px, calc(100vw - 24px));
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.14);
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+  user-select: none;
+  transition: border-color 0.25s;
+}
+
+#wst-panel.wst-hidden {
+  display: none !important;
+}
+
+#wst-panel .wst-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e5e7eb;
+  cursor: grab;
+}
+
+#wst-panel .wst-header:active {
+  cursor: grabbing;
+}
+
+#wst-panel .wst-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: #475569;
+}
+
+#wst-panel .wst-close {
+  border: none;
+  background: transparent;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wst-panel .wst-close:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+#wst-panel .wst-body {
+  padding: 12px;
+}
+
+#wst-panel .wst-word {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+#wst-panel .wst-phonetic {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+#wst-panel .wst-translation {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+  color: #334155;
+  word-break: break-word;
+  min-height: 40px;
+}
+
+#wst-panel .wst-loading {
+  color: #64748b;
+  font-size: 13px;
+}
+
+#wst-panel .wst-error {
+  color: #dc2626;
+  font-size: 13px;
+}
+
+#wst-panel .wst-footer {
+  display: flex;
+  gap: 8px;
+  padding: 0 12px 12px;
+}
+
+#wst-panel .wst-btn {
+  flex: 1;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #334155;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#wst-panel .wst-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+#wst-panel .wst-btn-primary {
+  background: var(--wstp);
+  border-color: var(--wstp);
+  color: #fff;
+}
+
+#wst-panel .wst-btn-primary:hover {
+  background: color-mix(in srgb, var(--wstp) 82%, #000);
+  border-color: color-mix(in srgb, var(--wstp) 82%, #000);
+}
+
+#wst-panel .wst-toast {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #059669;
+}
+
+#wst-toast-fixed {
+  position: fixed;
+  z-index: 2147483647;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(12px);
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: "Segoe UI", "PingFang SC", sans-serif;
+}
+
+#wst-toast-fixed.wst-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#wst-panel .wst-header {
+  gap: 4px;
+}
+
+#wst-panel .wst-speak {
+  border: none;
+  background: transparent;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  margin-left: auto;
+}
+
+#wst-panel .wst-speak:hover {
+  background: #e2e8f0;
+}
+
+#wst-panel .wst-senses {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#wst-panel .wst-sense {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+}
+
+#wst-panel .wst-pos {
+  flex: none;
+  background: var(--wstp-soft);
+  color: var(--wstp);
+  border-radius: 6px;
+  padding: 1px 7px;
+  font-size: 12px;
+  font-weight: 600;
+  height: fit-content;
+}
+
+#wst-panel .wst-defs {
+  word-break: break-word;
+}
+
+#wst-panel .wst-forms {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: #475569;
+}
+
+#wst-panel .wst-forms-title {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+#wst-panel .wst-form {
+  display: inline-flex;
+  gap: 4px;
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin: 0 6px 4px 0;
+}
+
+#wst-panel .wst-form b {
+  color: #64748b;
+  font-weight: 600;
+}
+
+#wst-panel .wst-examples {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#wst-panel .wst-ex {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+}
+
+#wst-panel .wst-ex-en {
+  display: block;
+  color: #1e293b;
+}
+
+#wst-panel .wst-ex-zh {
+  display: block;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* 外观工具条：选色 + 花边 */
+#wst-panel .wst-appearance {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 12px 10px;
+}
+#wst-panel .wst-app-label {
+  font-size: 11px;
+  color: #94a3b8;
+}
+#wst-panel .wst-app-colors {
+  display: flex;
+  gap: 5px;
+}
+#wst-panel .wst-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s, border-color 0.15s;
+}
+#wst-panel .wst-color:hover {
+  transform: scale(1.2);
+}
+#wst-panel .wst-color.active {
+  border-color: #1f2937;
+}
+#wst-panel .wst-lace-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#wst-panel .wst-lace-btn:hover,
+#wst-panel .wst-lace-btn.active {
+  background: #f1f5f9;
+}
+
+/* 花边：主题色边框 + 内层虚线 + 底部彩条 */
+#wst-panel.wst-laced {
+  border: 2px solid var(--wstp);
+}
+#wst-panel.wst-laced .wst-body {
+  position: relative;
+}
+#wst-panel.wst-laced .wst-body::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed color-mix(in srgb, var(--wstp) 55%, transparent);
+  border-radius: 8px;
+  pointer-events: none;
+}
+#wst-panel.wst-laced::after {
+  content: "";
+  display: block;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--wstp) 0 8px,
+    transparent 8px 16px
+  );
+}
+
+/* 生词自动高亮（页面正文里） */
+.wst-hl {
+  background: #fef9c3;
+  color: #78350f;
+  border-radius: 3px;
+  padding: 0 1px;
+  cursor: help;
+  box-shadow: 0 0 0 1px rgba(180, 83, 9, 0.18);
+}

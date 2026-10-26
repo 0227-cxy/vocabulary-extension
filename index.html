@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>划词翻译 · 生词本 | 浏览器插件</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+        background: linear-gradient(160deg, #eef2ff 0%, #f5f3ff 100%);
+        color: #1e293b;
+        min-height: 100vh;
+      }
+      .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+      .hero { text-align: center; margin-bottom: 44px; }
+      .logo {
+        width: 72px; height: 72px; border-radius: 18px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        display: inline-flex; align-items: center; justify-content: center;
+        color: #fff; font-size: 34px; font-weight: 700; margin-bottom: 18px;
+        box-shadow: 0 12px 30px rgba(99, 102, 241, 0.35);
+      }
+      h1 { font-size: 30px; margin-bottom: 10px; }
+      .sub { color: #64748b; font-size: 15px; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+      .card {
+        background: #fff; border-radius: 16px; padding: 24px 28px; margin-top: 20px;
+        border: 1.5px solid #c7d2fe; box-shadow: 0 8px 24px rgba(51, 65, 85, 0.06);
+      }
+      .card h2 { font-size: 19px; margin-bottom: 14px; color: #4338ca; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .feat {
+        background: #f8faff; border: 1px solid #e0e7ff; border-radius: 12px; padding: 14px 16px;
+      }
+      .feat b { display: block; margin-bottom: 5px; color: #312e81; }
+      .feat span { font-size: 13px; color: #64748b; line-height: 1.6; }
+      ol.steps { padding-left: 20px; }
+      ol.steps li { margin: 9px 0; font-size: 14.5px; line-height: 1.7; }
+      .tag {
+        display: inline-block; background: #eef2ff; color: #4f46e5;
+        border-radius: 999px; padding: 2px 10px; font-size: 12px; margin-right: 6px; margin-bottom: 6px;
+      }
+      footer { text-align: center; color: #94a3b8; font-size: 12.5px; margin-top: 40px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <div class="logo">译</div>
+        <h1>划词翻译 · 生词本</h1>
+        <p class="sub">
+          一款轻量的浏览器插件：选中英文即译，词性、音标、例句、词形一目了然；
+          一键存入生词本，支持复习、统计与导出，帮你轻松积累词汇。
+        </p>
+        <div style="margin-top:14px;">
+          <span class="tag">浏览器扩展</span>
+          <span class="tag">划词翻译</span>
+          <span class="tag">生词本</span>
+          <span class="tag">Anki 导出</span>
+          <span class="tag">主题换色</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>✨ 主要功能</h2>
+        <div class="grid">
+          <div class="feat"><b>划词即译</b><span>选中英文单词，弹出中文释义、音标、词性、词形变化与中英例句。</span></div>
+          <div class="feat"><b>朗读发音</b><span>点击喇叭按钮，即可听标准美式发音。</span></div>
+          <div class="feat"><b>生词本</b><span>一键存入，支持按难度标记、搜索、排序与随机复习。</span></div>
+          <div class="feat"><b>学习统计</b><span>记录今日新增、累计与连续打卡天数，激励坚持。</span></div>
+          <div class="feat"><b>导出备份</b><span>一键导出 Anki / CSV / JSON，随时备份与迁移。</span></div>
+          <div class="feat"><b>主题花边</b><span>蓝、粉、黄、紫、绿五种主题色，弹窗与页面一键换肤。</span></div>
+          <div class="feat"><b>生词自动高亮</b><span>打开网页自动标出已学单词，点击即可查看释义。</span></div>
+          <div class="feat"><b>每日复习提醒</b><span>设置时间，到点温柔提醒你复习生词本。</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🚀 使用方法</h2>
+        <ol class="steps">
+          <li>在 Edge / Chrome 的扩展管理页开启「开发人员模式」；</li>
+          <li>点击「加载解压缩的扩展」，选择本项目文件夹；</li>
+          <li>打开任意英文网页，选中单词即可查看翻译；</li>
+          <li>点击「存入生词本」，积累你的专属词汇库。</li>
+        </ol>
+      </div>
+
+      <footer>划词翻译 · 生词本 —— 课程作业项目 · GitHub Pages</footer>
+    </div>
+  </body>
+</html>

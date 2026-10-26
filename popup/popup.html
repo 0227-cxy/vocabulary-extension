@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <title>生词本</title>
+    <link rel="stylesheet" href="../styles/shared.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="popup-header">
+      <div>
+        <h1>生词本</h1>
+        <p class="muted">选中英文即可划词翻译</p>
+      </div>
+      <button type="button" id="btn-settings" class="btn btn-icon" title="设置">⚙</button>
+    </header>
+
+    <div class="lace-bar"></div>
+
+    <section class="stats-row" id="stats-row"></section>
+
+    <section class="theme-row" id="theme-row"></section>
+
+    <section class="toolbar">
+      <input type="search" id="search" class="input" placeholder="搜索单词或释义…" />
+      <div class="toolbar-actions">
+        <select id="diff-filter" class="input diff-filter">
+          <option value="all">全部难度</option>
+          <option value="unfamiliar">生疏</option>
+          <option value="familiar">熟悉</option>
+          <option value="mastered">掌握</option>
+        </select>
+        <button type="button" id="btn-add" class="btn btn-primary">添加</button>
+        <button type="button" id="btn-open-full" class="btn">完整页</button>
+      </div>
+    </section>
+
+    <section id="add-form" class="add-form card hidden">
+      <input type="text" id="add-word" class="input" placeholder="英文单词或短语" />
+      <input type="text" id="add-translation" class="input" placeholder="中文释义（可留空自动翻译）" />
+      <div class="add-form-actions">
+        <button type="button" id="btn-add-cancel" class="btn">取消</button>
+        <button type="button" id="btn-add-save" class="btn btn-primary">保存</button>
+      </div>
+    </section>
+
+    <ul id="vocab-list" class="vocab-list"></ul>
+
+    <footer class="popup-footer">
+      <span id="count-label" class="muted">0 个生词</span>
+      <button type="button" id="btn-clear" class="btn btn-danger">清空</button>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

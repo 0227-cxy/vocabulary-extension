@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>划词翻译 · 设置</title>
+    <link rel="stylesheet" href="../styles/shared.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <h1>翻译设置</h1>
+        <p class="muted">默认使用 MyMemory 免费接口；配置 Key 后可切换有道或百度以提升质量。</p>
+      </header>
+
+      <section class="card section">
+        <h2>外观主题</h2>
+        <p class="muted">选择主题色，弹窗和生词本页都会跟着变。</p>
+        <div class="theme-row" id="theme-row"></div>
+      </section>
+
+      <section class="card section">
+        <h2>复习与高亮</h2>
+        <label class="toggle-row">
+          <input type="checkbox" id="highlightAuto" />
+          <span>打开网页时，自动高亮生词本里学过的单词</span>
+        </label>
+        <label class="field">
+          <span>每日复习提醒时间（可选）</span>
+          <input type="time" id="dailyReminderTime" class="input" />
+          <small class="muted">到点会在系统通知提醒你复习生词本</small>
+        </label>
+      </section>
+
+      <section class="card section">
+        <h2>翻译引擎</h2>
+        <label class="field">
+          <span>当前引擎</span>
+          <select id="provider" class="input">
+            <option value="mymemory">MyMemory（免费，无需 Key）</option>
+            <option value="youdao">有道智云</option>
+            <option value="baidu">百度翻译</option>
+          </select>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="autoPopup" checked />
+          选中英文后自动弹出翻译浮窗
+        </label>
+      </section>
+
+      <section class="card section">
+        <h2>有道智云</h2>
+        <p class="muted">在 <a href="https://ai.youdao.com/" target="_blank" rel="noreferrer">有道智云</a> 创建应用后填写。</p>
+        <label class="field">
+          <span>App Key</span>
+          <input type="text" id="youdaoKey" class="input" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>App Secret</span>
+          <input type="password" id="youdaoSecret" class="input" autocomplete="off" />
+        </label>
+      </section>
+
+      <section class="card section">
+        <h2>百度翻译</h2>
+        <p class="muted">在 <a href="https://fanyi-api.baidu.com/" target="_blank" rel="noreferrer">百度翻译开放平台</a> 获取。</p>
+        <label class="field">
+          <span>App ID</span>
+          <input type="text" id="baiduId" class="input" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>密钥</span>
+          <input type="password" id="baiduSecret" class="input" autocomplete="off" />
+        </label>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="btn-save" class="btn btn-primary">保存设置</button>
+        <span id="status" class="muted"></span>
+      </div>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

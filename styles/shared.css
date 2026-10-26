@@ -1,0 +1,237 @@
+:root {
+  --wst-bg: #f8fafc;
+  --wst-surface: #ffffff;
+  --wst-border: #e2e8f0;
+  --wst-text: #1e293b;
+  --wst-muted: #64748b;
+  --wst-primary: #2563eb;
+  --wst-primary-hover: #1d4ed8;
+  --wst-danger: #dc2626;
+  --wst-radius: 10px;
+  --wst-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  color: var(--wst-text);
+  background: var(--wst-bg);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--wst-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--wst-border);
+  background: var(--wst-surface);
+  color: var(--wst-text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.btn-primary {
+  background: var(--wst-primary);
+  border-color: var(--wst-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--wst-primary-hover);
+  border-color: var(--wst-primary-hover);
+}
+
+.btn-danger {
+  color: var(--wst-danger);
+  border-color: #fecaca;
+}
+
+.btn-danger:hover {
+  background: #fef2f2;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--wst-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: #fff;
+  color: var(--wst-text);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.card {
+  background: var(--wst-surface);
+  border: 1.5px solid var(--wst-primary);
+  border-radius: var(--wst-radius);
+  box-shadow: var(--wst-shadow);
+  position: relative;
+}
+
+/* 主题色花边：卡片内层一圈虚线 */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed color-mix(in srgb, var(--wst-primary) 45%, transparent);
+  border-radius: calc(var(--wst-radius) - 4px);
+  pointer-events: none;
+}
+
+/* 彩条花边（标题下/底部装饰，随主题色变化） */
+.lace-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--wst-primary) 0 7px,
+    transparent 7px 14px
+  );
+  opacity: 0.75;
+  margin: 10px 0;
+}
+
+/* 小猫吉祥物 */
+.wst-cat {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.wst-cat:hover {
+  transform: scale(1.06) rotate(-4deg);
+}
+.wst-cat-bubble {
+  position: relative;
+  background: var(--wst-accent-soft, #eff6ff);
+  color: var(--wst-text);
+  border: 1px solid var(--wst-primary);
+  border-radius: 12px;
+  padding: 7px 11px;
+  font-size: 12.5px;
+  max-width: 240px;
+  text-align: center;
+}
+.wst-cat-bubble::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 22px;
+  border: 7px solid transparent;
+  border-bottom-color: var(--wst-primary);
+}
+
+/* 主题切换色点 */
+.theme-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.theme-row .theme-label {
+  font-size: 12px;
+  color: var(--wst-muted);
+  margin-right: 2px;
+}
+.theme-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.theme-dot:hover {
+  transform: scale(1.15);
+}
+.theme-dot.active {
+  border-color: var(--wst-text);
+}
+
+/* 学习统计徽章 */
+.stat-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 6px 0;
+}
+.stat-badge {
+  background: var(--wst-accent-soft, #eff6ff);
+  color: var(--wst-text);
+  border: 1px solid var(--wst-primary);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 难易标记 */
+.diff-select {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--wst-border);
+  color: var(--wst-text);
+  background: var(--wst-surface);
+}
+.diff-tag {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.diff-unfamiliar {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.diff-familiar {
+  background: #fef3c7;
+  color: #92400e;
+}
+.diff-mastered {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.muted {
+  color: var(--wst-muted);
+  font-size: 12px;
+}
+
+.empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--wst-muted);
+}
