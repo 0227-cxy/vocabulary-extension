@@ -281,7 +281,6 @@ function showReviewItem(item) {
   reviewPhonetic.textContent = item.phonetic || "";
   reviewAnswer.textContent = item.translation || "（无释义）";
   reviewAnswer.classList.add("hidden");
-  reviewCat.textContent = "";
 }
 
 document.getElementById("btn-review").addEventListener("click", () => {

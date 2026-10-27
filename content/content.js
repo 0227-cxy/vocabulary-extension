@@ -41,6 +41,7 @@
           <div class="wst-senses"></div>
           <div class="wst-forms"></div>
           <div class="wst-examples"></div>
+          <div class="wst-synonyms"></div>
           <div class="wst-toast"></div>
         </div>
         <div class="wst-appearance">
@@ -178,9 +179,18 @@
       .join("");
   }
 
+  function renderSynonyms(synonyms) {
+    const arr = (Array.isArray(synonyms) ? synonyms : []).filter(Boolean).slice(0, 8);
+    if (!arr.length) return "";
+    return (
+      '<div class="wst-syn-title">同义词</div>' +
+      arr.map((s) => `<span class="wst-syn">${escapeHtml(s)}</span>`).join("")
+    );
+  }
+
   function setPanelContent(data = {}) {
-    const { word, translation, phonetic, senses, examples, wordForms, loading, error, saved } = data;
-    currentData = { word: word || "", translation: translation || "", phonetic: phonetic || "", senses: senses || [], examples: examples || [], wordForms: wordForms || {} };
+    const { word, translation, phonetic, senses, examples, wordForms, synonyms, loading, error, saved } = data;
+    currentData = { word: word || "", translation: translation || "", phonetic: phonetic || "", senses: senses || [], examples: examples || [], wordForms: wordForms || {}, synonyms: Array.isArray(synonyms) ? synonyms : [] };
 
     panel.querySelector(".wst-word").textContent = currentData.word;
     const ph = panel.querySelector(".wst-phonetic");
@@ -196,6 +206,7 @@
       panel.querySelector(".wst-senses").innerHTML = "";
       panel.querySelector(".wst-forms").innerHTML = "";
       panel.querySelector(".wst-examples").innerHTML = "";
+      panel.querySelector(".wst-synonyms").innerHTML = "";
       return;
     }
     if (error) {
@@ -203,12 +214,14 @@
       panel.querySelector(".wst-senses").innerHTML = "";
       panel.querySelector(".wst-forms").innerHTML = "";
       panel.querySelector(".wst-examples").innerHTML = "";
+      panel.querySelector(".wst-synonyms").innerHTML = "";
       return;
     }
     box.textContent = translation || "—";
     panel.querySelector(".wst-senses").innerHTML = renderSenses(senses);
     panel.querySelector(".wst-forms").innerHTML = renderForms(wordForms);
     panel.querySelector(".wst-examples").innerHTML = renderExamples(examples);
+    panel.querySelector(".wst-synonyms").innerHTML = renderSynonyms(synonyms);
   }
 
   function onSpeak() {
@@ -237,6 +250,7 @@
       senses: preloaded?.senses,
       examples: preloaded?.examples,
       wordForms: preloaded?.wordForms,
+      synonyms: preloaded?.synonyms,
       error: opts.error,
       saved: opts.saved,
     });
@@ -256,6 +270,7 @@
       senses: res.senses,
       examples: res.examples,
       wordForms: res.wordForms,
+      synonyms: res.synonyms,
     });
     return res;
   }
@@ -273,6 +288,7 @@
         senses,
         examples,
         wordForms,
+        synonyms: currentData.synonyms,
         sourceTitle: document.title,
         sourceUrl: location.href,
       },
@@ -367,6 +383,7 @@
               senses: msg.senses,
               examples: msg.examples,
               wordForms: msg.wordForms,
+              synonyms: msg.synonyms,
             }
           : undefined,
         error: msg.error,
@@ -442,6 +459,7 @@
                     senses: res.senses,
                     examples: res.examples,
                     wordForms: res.wordForms,
+                    synonyms: res.synonyms,
                   },
                 });
               }

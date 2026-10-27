@@ -88,6 +88,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
           senses: result.senses,
           examples: result.examples,
           wordForms: result.wordForms,
+          synonyms: result.synonyms,
           sourceTitle: tab.title || "",
           sourceUrl: tab.url || "",
         })
@@ -101,6 +102,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         senses: result.senses,
         examples: result.examples,
         wordForms: result.wordForms,
+        synonyms: result.synonyms,
         saved: true,
         fromContextMenu: true,
       });
@@ -136,6 +138,7 @@ async function translateWithDict(text) {
     result.phonetic = details.phonetic || result.phonetic;
     result.examples = details.examples;
     result.wordForms = details.wordForms;
+    result.synonyms = details.synonyms;
   }
   return result;
 }

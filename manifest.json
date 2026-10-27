@@ -26,7 +26,8 @@
     "https://api.mymemory.translated.net/*",
     "https://openapi.youdao.com/*",
     "https://fanyi-api.baidu.com/*",
-    "https://dictionaryapi.dev/*"
+    "https://dictionaryapi.dev/*",
+    "https://api.datamuse.com/*"
   ],
   "content_scripts": [
     {
